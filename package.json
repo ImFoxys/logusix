@@ -1,14 +1,14 @@
 {
-  "type": "module",
-  "name": "logus",
-  "version": "1.0.0",
+  "name": "logusix",
+  "version": "1.0.1",
   "description": "Powerfull log system",
-  "main": "index.js",
+  "main": "/lib/logusix.js",
+  "keywords": ["logusix", "log"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "NPM Demo User <foxis8676@gmail.com> ()",
-  "license": "ISC",
+  "author": "Foxys_",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.8.9"
   },
