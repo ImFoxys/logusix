@@ -1,8 +1,8 @@
 {
   "name": "logusix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Powerfull log system",
-  "main": "/lib/logusix.js",
+  "main": "./lib/logusix.js",
   "keywords": ["logusix", "log"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
