@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Logusix • Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body data-bs-theme="dark">
+    <header>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <span class="navbar-brand mb-0 h1">LogusixWeb • Dashboard</span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="mb-4 mt-4 console-back">
+        <div class="console" id="console">
+          <p class="gray">connection...</p>
+        </div>
+        <div class="input">
+          <input type="text" id="to-log" autocomplete="off" placeholder="Enter your log">
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+  
+  <style>
+
+    span.navbar-brand {
+      font-family: 'Fira Code';
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    div.console {
+      border-radius: 8px;
+      padding: 16px;
+      background: #141414;
+      height: calc(100vh - 148px);
+      max-height: calc(100vh - 148px);
+      overflow-y: auto;
+      word-wrap: break-word;
+    }
+
+    div.input {
+      gap: 8px;
+      display: flex;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    div.input input {
+      border: none;
+      border-radius: 4px;
+      background: #1a1a1a;
+      font-family: 'Fira Code';
+      padding: 8px;
+      width: 100%;
+      font-size: 12px;
+      outline: 2px solid #1a1a1a
+    }
+
+    div.input button {
+      right: 0;
+      position: absolute;
+      border: none;
+      background: #0a0a0a;
+      height: 100%;
+      border-radius: 0 4px 4px 0;
+    }
+
+    div.input button:hover {
+      background: #141414;
+    }
+
+    div.input input:focus {
+      outline: 2px solid indianred
+    }
+
+    div.console p {
+      font-family: 'Fira Code';
+      margin: 0;
+      font-size: 12px;
+    }
+
+    div.console p.gray {
+      color: rgb(100, 100, 100);
+    }
+    
+    div.console p.red {
+      color: rgb(207, 17, 17);
+    }
+
+    div.console p.yellow {
+      color: rgb(252, 214, 0);
+    }
+
+    div.console p.blue {
+      color: rgb(10, 130, 228);
+    }
+
+    div.console p.green {
+      color: rgb(17, 207, 26);
+    }
+  </style>
+
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+  <script defer>
+    const socket = io();
+
+    const core = {
+      '>>': 'gray',
+      '!>': 'red',
+      '$>': 'yellow',
+      '?>': 'blue',
+      '*>': 'green'
+    }
+
+    function format(c) {
+      document.getElementById('console').innerHTML += 
+      `
+        <p class="${core.hasOwnProperty(c[0] + c[1]) ? core[c[0] + c[1]] : 'gray'}">${c.slice(3)}</p>
+      `
+    }
+
+    socket.on('connection', () => {
+      console.log('connected');
+    });
+
+    socket.on('new', (d) => {
+      format(d);
+    });
+
+    document.getElementById('to-log').addEventListener('keydown', function(e) {
+      if(e.key !== 'Enter') return;
+
+      if(!core.hasOwnProperty(this.value[0] + this.value[1])) this.value = '>> ' + this.value;
+
+      socket.emit('new', this.value);     
+
+      this.value = '';
+    });
+  </script>
+</html>

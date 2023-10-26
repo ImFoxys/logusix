@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "logus",
+  "version": "1.0.0",
+  "description": "Powerfull log system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NPM Demo User <foxis8676@gmail.com> ()",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.9"
+  },
+  "dependencies": {
+    "socket.io": "^4.7.2",
+    "ws": "^8.14.2"
+  }
+}
