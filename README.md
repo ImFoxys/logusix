@@ -107,8 +107,11 @@ You just need to start each line with :
 
 My discord : `@foxys__`
 
+My Github : `@ImFoxys`
+
 ## Github Repository 
-[here !](https://github.com/ImFoxys/logusix)
+
+[here !](https://github.com/logusix/logusix)
 
 ## Licenses
 

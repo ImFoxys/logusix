@@ -1,8 +1,8 @@
 {
   "name": "logusix",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Simple and powerfull file log system with web dashboard and bakcup system.",
-  "homepage": "https://github.com/ImFoxys/logusix",
+  "homepage": "https://github.com/logusix/logusix#readme",
   "main": "./lib/logusix.js",
   "keywords": [
     "logusix",
@@ -19,6 +19,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ImFoxys/logusix.git"
+    "url": "https://github.com/logusix/logusix.git"
   }
 }
