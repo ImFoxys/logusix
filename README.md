@@ -46,7 +46,7 @@ Simple and powerfull file log system with web dashboard and bakcup system.
   });
 ```
 
-## Parameters 
+## Parameters `new Logusix({ ... })`
 **`output`** : Name of output file. `(default : 'log')`
 
 **`locale`** : Location name for timestamp `(default: 'en-US')` [🔗](https://www.techonthenet.com/js/language_tags.php)
@@ -74,19 +74,21 @@ Simple and powerfull file log system with web dashboard and bakcup system.
   logusix.log('>> Something', '!> Something else'); 
 ```
 
+## Backups
+
 ```javascript
   // Make backup
   logusix.backup({
-    // Backup file output 
-    // Dont forget to create this folder !
-    output: 'backup', 
-    
-    // Backup file name 
-    // (default: new Date().getTime()) 
-    // Converted in snake_case
-    backupName: 'your_name', 
+    /* params */
   });
 ```
+
+## Parameters `<Logusix>.backup({ ... })`
+**`output`** : Name of output folder. `(no default)`
+
+**`backupName`**: Unique backup file name, convert automatically in snake_case. `(default: new Date().getTime())`.
+
+**`force`**: Overwrite backup file if it already exists `(default: false)`
 
 ## Colors 
 You just need to start each line with :

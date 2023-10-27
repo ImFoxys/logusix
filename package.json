@@ -1,7 +1,8 @@
 {
   "name": "logusix",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "description": "Simple and powerfull file log system with web dashboard and bakcup system.",
+  "homepage": "https://github.com/ImFoxys/logusix",
   "main": "./lib/logusix.js",
   "keywords": [
     "logusix",
@@ -15,5 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "socket.io": "^4.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ImFoxys/logusix.git"
   }
 }
