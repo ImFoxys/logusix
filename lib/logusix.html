@@ -19,7 +19,7 @@
     <main class="container">
       <div class="mb-4 mt-4 console-back">
         <div class="console" id="console">
-          <p class="gray">connection...</p>
+          <p class="gray info">connection...</p>
         </div>
         <div class="input">
           <input type="text" id="to-log" autocomplete="off" placeholder="Enter your log">
@@ -111,6 +111,10 @@
     div.console p.green {
       color: rgb(17, 207, 26);
     }
+
+    div.console p.info {
+      opacity: .5;
+    }
   </style>
 
   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
@@ -132,10 +136,6 @@
         <p class="${core.hasOwnProperty(c[0] + c[1]) ? core[c[0] + c[1]] : 'gray'}">${c.slice(3)}</p>
       `
     }
-
-    socket.on('connection', () => {
-      console.log('connected');
-    });
 
     socket.on('new', (d) => {
       format(d);

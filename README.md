@@ -1,6 +1,10 @@
 
 # Logusix  
-Simple and powerfull file log system, with web dashboard
+Simple and powerfull file log system with web dashboard and bakcup system.
+
+| Language | Platform | Dépendencies | Repository |
+|----------|----------|--------------|------------|
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) | ![Socket.io](https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101) | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 ## Screenshots  
 
@@ -11,8 +15,13 @@ Simple and powerfull file log system, with web dashboard
 ## Features  
 
 - Simple to use
-- Web dashboard  
-- File output customisable  
+- Web dashboard :
+  - custom port
+  - Auto-refresh with WebSockets
+- File output customisable
+- Simple backup system
+  - Choose backup output
+  - Choose backup name
 
 ## Installation
 ```bash
@@ -40,13 +49,15 @@ Simple and powerfull file log system, with web dashboard
 ## Parameters 
 **`output`** : Name of output file. `(default : 'log')`
 
-**`locale`** : Location name for timestamp `(default: 'en-US')`
+**`locale`** : Location name for timestamp `(default: 'en-US')` [🔗](https://www.techonthenet.com/js/language_tags.php)
 
 **`printer`** : Print automatically in console when you `<Logusix>.log('>> Somethings')` in output file. `(default: false)`
 
 **`timestamp`:** Show log timestamp `(default: true)`
 
-**`dashboard`**: Start the dashport on __localhost:8080__ `(default: false)`
+**`dashboard.active`**: Active web dashboard on selected port `(default: false)`
+
+**`dashboard.port`**: Select 
 
 
 ## Functions
@@ -60,7 +71,21 @@ Simple and powerfull file log system, with web dashboard
 
 ```javascript
   // Multi arguments supported !
-  lagousix.log('>> Something', '!> Something else'); 
+  logusix.log('>> Something', '!> Something else'); 
+```
+
+```javascript
+  // Make backup
+  logusix.backup({
+    // Backup file output 
+    // Dont forget to create this folder !
+    output: 'backup', 
+    
+    // Backup file name 
+    // (default: new Date().getTime()) 
+    // Converted in snake_case
+    backupName: 'your_name', 
+  });
 ```
 
 ## Colors 
@@ -80,6 +105,8 @@ You just need to start each line with :
 
 My discord : `@foxys__`
 
+## Github Repository 
+[here !](https://github.com/ImFoxys/logusix)
 
 ## Licenses
 
@@ -87,4 +114,4 @@ My discord : `@foxys__`
 
 ---
 
-*This library has been created in few hours with ❤.*
+*This library has been created in few hours with ❤.* 

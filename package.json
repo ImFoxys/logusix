@@ -1,19 +1,19 @@
 {
   "name": "logusix",
-  "version": "1.0.2",
-  "description": "Powerfull log system",
+  "version": "1.1.0",
+  "description": "Simple and powerfull file log system with web dashboard and bakcup system.",
   "main": "./lib/logusix.js",
-  "keywords": ["logusix", "log"],
+  "keywords": [
+    "logusix",
+    "log",
+    "log system"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Foxys_",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.8.9"
-  },
   "dependencies": {
-    "socket.io": "^4.7.2",
-    "ws": "^8.14.2"
+    "socket.io": "^4.7.2"
   }
 }
